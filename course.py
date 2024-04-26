@@ -34,7 +34,7 @@ def get_client():
 def generate_course(maintopic, subtopic):
     prompt = (
         systemPrompt
-        + "\Maintopic:"
+        + "\nMaintopic:"
         + maintopic
         + "\nSubtopic:"
         + subtopic
