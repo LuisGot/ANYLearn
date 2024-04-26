@@ -20,8 +20,8 @@ Always pay attention to the following:
 - Explain the topic to the user as precisely as possible
 - Give examples to explain the topic as well as possible
 - do not start a conversation just give the course
-- Use Markdown format to make the course more readable
-- Use Markdown Headings to Format the course into a more readable format (You can do that by writing a '#' and the heading sperated by a space, eg. '# Heading', write multiple #'s for subheadings)
+- Format the Course in Markdown format
+- Always answer in the language of the user
 """
 
 
