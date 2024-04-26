@@ -2,6 +2,8 @@
 
 This Python script utilizes the [Groq AI](https://groq.com) API to divide a topic into subtopics and generates complete courses for each subtopic. The program then leverages a Discord webhook to send the generated courses to a Discord server, making it easy to share and collaborate on educational content.
 
+![](/res/Images/ANYLearn-banner.png)
+
 ## Table of Contents
 
 1. [Description](#description)
