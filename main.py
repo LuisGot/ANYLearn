@@ -3,7 +3,7 @@ from course import generate_course
 from send import send_discord_message
 
 def get_user_input():
-    topic = input("Topic: ")
+    topic = input("What Topic do you want to learn: ")
     goal = input("What do you want to learn about this topic? ")
     knowledge = input("What is your current level of knowledge about this topic? ")
     return topic, goal, knowledge
@@ -33,6 +33,7 @@ def generate_subtopic_course(maintopic, subtopic):
 
 
 def main():
+    print (welcomeMessage)
     message = get_user_input()
     subtopics = get_subtopics(message)
     while True:
@@ -46,6 +47,14 @@ def main():
             break
 
 
+welcomeMessage = r"""
+     _    _   ___   ___                          
+    / \  | \ | \ \ / / |    ___  __ _ _ __ _ __  
+   / _ \ |  \| |\ V /| |   / _ \/ _` | '__| '_ \ 
+  / ___ \| |\  | | | | |__|  __/ (_| | |  | | | |
+ /_/   \_\_| \_| |_| |_____\___|\__,_|_|  |_| |_|
+                                                 
+"""
 
 
 if __name__ == "__main__":
