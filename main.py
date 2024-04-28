@@ -28,9 +28,9 @@ def get_user_subtopic_choice(subtopics: list) -> str:
             return subtopics[choice - 1]
         print("Invalid choice. Please try again.")
 
-def generate_subtopic_course(maintopic: str, subtopic: str) -> str:
+def generate_subtopic_course(maintopic: str, subtopic: str, subtopics: list) -> str:
     """Generate a course for the selected subtopic"""
-    return generate_course(maintopic, subtopic)
+    return generate_course(maintopic, subtopic, subtopics)
 
 def main() -> None:
     """Main function to interact with the user and generate courses"""
@@ -40,7 +40,7 @@ def main() -> None:
     while True:
         display_subtopics(subtopics)
         subtopic = get_user_subtopic_choice(subtopics)
-        course = generate_subtopic_course(message[0], subtopic)
+        course = generate_subtopic_course(message[0], subtopic, subtopics)
         send_discord_message(course)
         cont = input("Would you like to learn more about a different subtopic? (y/n): ")
         if cont.lower() != "y":

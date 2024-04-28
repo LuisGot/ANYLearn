@@ -19,7 +19,7 @@ Always pay attention to these things when answering:
 - Never answer with more than the subtopics separated by a comma
 - Dont use other words than the subtopics
 - Do not use any punctuation other than commas
-- Always answer in the language of the user
+- Look at the language of the given Subtopic Goal and Knowledge of the User, always answer in this language
 - Never write "Here is the outline for a course on loops in Java:" or anything like that
 
 Examples of perfect answers:
