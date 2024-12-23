@@ -1,6 +1,5 @@
 from subtopics import generate_subtopics
 from course import generate_course
-from send import send_discord_message
 
 def get_user_input() -> tuple:
     """Get user input for topic, goal, and knowledge level"""
@@ -41,7 +40,7 @@ def main() -> None:
         display_subtopics(subtopics)
         subtopic = get_user_subtopic_choice(subtopics)
         course = generate_subtopic_course(message[0], subtopic, subtopics)
-        send_discord_message(course)
+        print(course)
         cont = input("Would you like to learn more about a different subtopic? (y/n): ")
         if cont.lower() != "y":
             break

@@ -1,8 +1,4 @@
-import os
-from groq import Groq
-from dotenv import load_dotenv
-load_dotenv()
-
+from llm_requests import make_llm_request
 
 systemPrompt = """
 You are an AI that creates perfect and detailed courses on a specific subtopic.
@@ -33,32 +29,12 @@ Always pay attention to the following:
 - Never, under any circumstances, speak or mention the other subtopics
 """
 
-
-def get_client():
-    api_key = os.getenv('API_KEY')
-    if not api_key:
-        raise ValueError("API key is not set")
-    return Groq(api_key=api_key)
-
 def generate_course(maintopic, subtopic, subtopics):
     prompt = (
         systemPrompt
-        + "\nMaintopic of Course: "
-        + maintopic
-        + "\nCourse Outline:\n"
-        + "\n".join([f"{i}. {sub}" for i, sub in enumerate(subtopics, start=1)])
-        + "\nSubtopic you will write about: "
-        + subtopic
+        + f"\nMaintopic of Course: {maintopic}\n"
+        + "Course Outline:\n"
+        + "\n".join(f"{i+1}. {sub}" for i, sub in enumerate(subtopics))
+        + f"\nSubtopic you will write about: {subtopic}\n"
     )
-    client = get_client()
-    chat_completion = client.chat.completions.create(
-        messages=[
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        ],
-        model="llama3-70b-8192",
-    )
-    print (prompt)
-    return chat_completion.choices[0].message.content
+    return make_llm_request(prompt)
