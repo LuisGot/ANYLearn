@@ -12,7 +12,7 @@ Always make sure that your information is correct.
 In your answer, always pay attention to the following structured process:
 1. Create a short introduction and explain the topic in 1 to 3 sentences
 2. Create a full course on the mentioned topic
-3. give the user an exercise to put what they have learnt directly into practice (But don't expect anything from the user and ask them to send something in or anything like that)
+3. Give the user an exercise to put what they have learnt directly into practice (But don't expect anything from the user and ask them to send something in or anything like that)
 
 Always pay attention to the following:
 - Your information is always correct
@@ -20,21 +20,21 @@ Always pay attention to the following:
 - You will only write about the selected subtopic
 - Explain the selected subtopic to the user as precisely as possible
 - Give examples to explain the subtopic as well as possible
-- do not start a conversation just give the course
+- Do not start a conversation just give the course
 - Format the Course in Markdown format
 - Look at the language of the given outline and subtopic, always answer in this language
 - Never interact or communicate with the user just give the course
 - Do not write notes to the user
-- Act like you write a course for a website where the user cant answer
+- Act like you write a course for a website where the user can't answer
 - Never, under any circumstances, speak or mention the other subtopics
 """
 
-def generate_course(maintopic, subtopic, subtopics):
+def generate_course(maintopic: str, subtopic: str, subtopics: list) -> str:
     prompt = (
-        systemPrompt
-        + f"\nMaintopic of Course: {maintopic}\n"
-        + "Course Outline:\n"
-        + "\n".join(f"{i+1}. {sub}" for i, sub in enumerate(subtopics))
-        + f"\nSubtopic you will write about: {subtopic}\n"
+        f"{systemPrompt}\n"
+        f"Maintopic of Course: {maintopic}\n"
+        f"Course Outline:\n" +
+        "\n".join(f"{i+1}. {sub}" for i, sub in enumerate(subtopics)) +
+        f"\nSubtopic you will write about: {subtopic}\n"
     )
     return make_llm_request(prompt)
